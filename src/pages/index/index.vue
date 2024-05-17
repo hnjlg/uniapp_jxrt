@@ -4,13 +4,12 @@
 		<view class="text-area">
 			<text class="title">{{ title }}</text>
 		</view>
+		<uni-badge text="1"></uni-badge>
 	</view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 const title = ref('Hello');
-console.log(import.meta.env.VITE_HTTP);
 </script>
 
 <style lang="scss">
@@ -24,7 +23,7 @@ console.log(import.meta.env.VITE_HTTP);
 .logo {
 	width: 200rpx;
 	height: 200rpx;
-	margin-top: 200rpx auto 50rpx auto;
+	margin: 200rpx auto 50rpx;
 }
 
 .text-area {

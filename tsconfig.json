@@ -13,13 +13,14 @@
       "dom"
     ],
     "types": [
-      "@dcloudio/types"
+      "@dcloudio/types",
     ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "auto-imports.d.ts"
   ]
 }

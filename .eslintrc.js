@@ -30,7 +30,9 @@ module.exports = {
         parser: '@typescript-eslint/parser',
     },
     plugins: [],
-    globals: {},
+    globals: {
+        "ref": "readonly"
+    },
     rules: {
         'no-prototype-builtins': 'error', // 允许使用hasOwnProperty
         'vue/no-unused-components': 'error', // 组件必须使用
