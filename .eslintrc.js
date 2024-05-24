@@ -31,7 +31,9 @@ module.exports = {
     },
     plugins: [],
     globals: {
-        "ref": "readonly"
+        "ref": "readonly",
+        "uni": "readonly",
+        "onLoad": "readonly"
     },
     rules: {
         'no-prototype-builtins': 'error', // 允许使用hasOwnProperty
@@ -54,5 +56,5 @@ module.exports = {
         'vue/valid-v-for': 'error', // 对于非保留(自定义)元素检查  vue3中v-for会自动追加key值，所以不用再强制添加key属性，所以不检查key的填写
         'no-unused-vars': 'error',
     },
-    ignorePatterns: ['src/shime-uni.d.ts'],
+    ignorePatterns: ['src/shime-uni.d.ts', 'dist'],
 };
