@@ -26,5 +26,8 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.stylelint": "explicit"
     },
-    "cSpell.words": []
+    "cSpell.words": [
+        "dcloudio",
+        "svgs"
+    ]
 }

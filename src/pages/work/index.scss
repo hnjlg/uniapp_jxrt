@@ -1,17 +1,28 @@
 .pages-work-index {
     position: relative;
+
     .work-bg {
         width: 100%;
         height: 160px;
     }
+
     .work-title {
         position: absolute;
         top: 30px;
         left: 20px;
         font-size: 24px;
     }
+
     .work-entrance {
         border-radius: 20px 20px 0 0;
         box-shadow: 0 -17px 15px -3px rgb(0 0 0 / 10%);
+
+        :deep(.selected-work-entrance) {
+            color: $uni-color-primary;
+        }
+    }
+
+    :deep(.tag-space) {
+        margin: 2px 5px;
     }
 }

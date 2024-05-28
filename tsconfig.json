@@ -15,7 +15,8 @@
     "types": [
       "@dcloudio/types",
       "wot-design-uni/global.d.ts",
-      "src/global.d.ts"
+      "src/global.d.ts",
+      "@types/node"
     ]
   },
   "include": [

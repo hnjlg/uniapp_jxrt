@@ -33,7 +33,8 @@ module.exports = {
     globals: {
         "ref": "readonly",
         "uni": "readonly",
-        "onLoad": "readonly"
+        "onLoad": "readonly",
+        "computed": "readonly"
     },
     rules: {
         'no-prototype-builtins': 'error', // 允许使用hasOwnProperty
@@ -50,7 +51,7 @@ module.exports = {
         'no-console': process.env.NODE_ENV === 'build' ? ['warn', { allow: ['warn'] }] : 'off', //生产模式不允许使用log
         'no-debugger': process.env.NODE_ENV === 'build' ? 'error' : 'off', //生产默认不允许使用debugger
         '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '.*', args: 'none' }], //变量声明未使用
-        '@typescript-eslint/no-explicit-any': 'error', // ts使用any
+        '@typescript-eslint/no-explicit-any': 'warn', // ts使用any
         '@typescript-eslint/no-var-requires': 'error', // 强制使用 import 且不允许使用 require 设置off关闭检查
         'vue/require-v-for-key': 'error', // 对保留元素检查 vue3中v-for会自动追加key值，所以不用再强制添加key属性，所以不检查key的填写
         'vue/valid-v-for': 'error', // 对于非保留(自定义)元素检查  vue3中v-for会自动追加key值，所以不用再强制添加key属性，所以不检查key的填写

@@ -1,5 +1,5 @@
 <template>
-	<view class="pages-index">
+	<view class="pages-index-index">
 		<wd-card title="新员工介绍" class="new-staff-introduce">
 			<wd-swiper :list="swiperList" direction="vertical" indicator-position="right" autoplay :indicator="{ type: 'dots-bar' }" @change="swiperChange">
 			</wd-swiper>
@@ -71,6 +71,7 @@
 
 <script setup lang="ts">
 import type { T_Wd_Swiper_Change_Fn } from '@/global';
+import { onShow } from '@dcloudio/uni-app';
 
 const swiperList = ref([
 	'https://unpkg.com/wot-design-uni-assets/redpanda.jpg',
@@ -114,17 +115,23 @@ const swiperChange: T_Wd_Swiper_Change_Fn = (params) => {
 	currentStaff.value = staffList.value[params.current];
 };
 
-uni.showLoading({
-	title: '加载中',
+onShow(() => {
+	// 如果没有权限，重新跳转
+	if (!uni.getStorageSync('token')) {
+		setTimeout(() => {
+			uni.navigateTo({
+				url: '/pages/login/index',
+			});
+		}, 1000);
+	}
 });
-
-setTimeout(() => {
-	uni.hideLoading();
-}, 1000);
 </script>
 
 <style lang="scss" scoped>
-.pages-index {
+.pages-index-index {
+	min-height: calc(100vh - 60px);
+	background-color: #f3f5fb;
+
 	.common-functions {
 		display: flex;
 
@@ -173,7 +180,7 @@ setTimeout(() => {
 			height: 24px;
 			font-size: 12px;
 			text-align: center;
-			color: #afd4fc;
+			color: $uni-color-primary;
 			line-height: 24px;
 		}
 	}

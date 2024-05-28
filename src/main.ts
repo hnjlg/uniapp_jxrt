@@ -1,5 +1,12 @@
 import { createSSRApp } from 'vue';
 import App from './App.vue';
+import VConsole from 'vconsole';
+
+// #ifdef H5
+if (import.meta.env.MODE === 'development') {
+	new VConsole();
+}
+// #endif
 
 // 白名单
 const whitelist = ['/pages/login/index'];
@@ -12,16 +19,14 @@ list.forEach((item) => {
 		invoke(e) {
 			// 调用前拦截
 			//获取用户的token
-			// const token = localStorage.getItem('token');
-			//获取当前页面路径（即url去掉"?"和"?"后的参数）
+			const token = uni.getStorageSync('token');
 			const url = e.url.split('?')[0];
-			console.log(url, 'router index url');
-			console.log(whitelist);
-			//判断要打开的页面是否需要验证登录
-			// uni.navigateTo({
-			// 	url: '/pages/login/index',
-			// });
-			// return false;
+			if (!whitelist.includes(url) && !token) {
+				uni.navigateTo({
+					url: '/pages/login/index',
+				});
+				return false;
+			}
 			return true;
 		},
 		fail(err) {
